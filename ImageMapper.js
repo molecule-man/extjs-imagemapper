@@ -165,9 +165,10 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
 
 
     afterRender: function() {
-        var me = this;
+        var me = this,
+            domHelper = Ext.DomHelper || Ext.core.DomHelper;
 
-        var imgDom = Ext.DomHelper.insertHtml('beforeEnd', Ext.getDom(me.el), me.imgTpl);
+        var imgDom = domHelper.insertHtml('beforeEnd', Ext.getDom(me.el), me.imgTpl);
         me.imgEl = Ext.get(imgDom);
         me.imgEl.on('load', me.onImgLoad, me);
         me.eventGrabber = me.el;
