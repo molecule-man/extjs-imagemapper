@@ -5,6 +5,7 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
         'Ext.resizer.Resizer',
         'Ext.dd.DragTracker'
     ],
+    alternateClassName: ['BAS.ux.extjs-imagemapper.ImageMapper'],
     alias: 'widget.imagemapper',
 
 
