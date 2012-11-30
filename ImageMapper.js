@@ -159,6 +159,11 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
     },
 
 
+    setSrc: function(src) {
+        this.imgEl.set({src: src});
+    },
+
+
     afterRender: function() {
         var me = this;
 
