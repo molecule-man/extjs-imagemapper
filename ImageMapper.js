@@ -164,6 +164,11 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
     },
 
 
+    getTargetEl: function() {
+        return this.selectionsWrapperEl;
+    }
+
+
     afterRender: function() {
         var me = this,
             domHelper = Ext.DomHelper || Ext.core.DomHelper;
@@ -171,6 +176,10 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
         var imgDom = domHelper.insertHtml('beforeEnd', Ext.getDom(me.el), me.imgTpl);
         me.imgEl = Ext.get(imgDom);
         me.imgEl.on('load', me.onImgLoad, me);
+
+        var selectionsWrapperDom = domHelper.insertHtml('beforeEnd', Ext.getDom(me.el), '<div></div>');
+        me.selectionsWrapperEl = Ext.get(selectionsWrapperDom);
+
         me.eventGrabber = me.el;
 
         if (me.zoomOnScroll) {
