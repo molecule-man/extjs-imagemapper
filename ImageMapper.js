@@ -685,13 +685,14 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
         if (naturalSize.width == 0 || naturalSize.height == 0 ||
             parentSize.width == 0 || parentSize.height == 0 )
         {
-            Ext.Error.raise({
-                msg: 'Either image or image\'s parent has zero size',
-                imgSize: naturalSize,
-                parentSize: parentSize,
-                cmp: 'ImageMapper',
-                method: 'adjustImgSize'
-            });
+            return;
+            //Ext.Error.raise({
+            //    msg: 'Either image or image\'s parent has zero size',
+            //    imgSize: naturalSize,
+            //    parentSize: parentSize,
+            //    cmp: 'ImageMapper',
+            //    method: 'adjustImgSize'
+            //});
         }
 
         var zoomFactor = parentSize.width / naturalSize.width,
