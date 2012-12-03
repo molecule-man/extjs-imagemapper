@@ -50,6 +50,8 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
     selectorClass: Ext.baseCSSPrefix+'mapper-selection',
     imgClass: Ext.baseCSSPrefix+'mapper-img',
 
+    selectorStyle: 'background-color: rgba(204, 204, 255, 0.25);',
+
 
     initComponent: function() {
         var me = this,
@@ -58,6 +60,7 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
             selectorStyle = [
                 'position:  absolute;',
                 'border:    1px solid #f00;', 
+                me.selectorStyle,
                 'z-index:   2;'
             ].join(''),
 
