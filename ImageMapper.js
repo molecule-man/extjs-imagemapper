@@ -165,7 +165,7 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
 
 
     getTargetEl: function() {
-        return this.selectionsWrapperEl;
+        return this.selectionsWrapperEl || this.el;
     },
 
 
