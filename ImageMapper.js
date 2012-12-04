@@ -755,6 +755,9 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
             node = me.getNode(record),
             nodeEl = Ext.fly(node);
 
+            if (!nodeEl) {
+                return;
+            }
 
             nodeEl.setLeft(Math.round(offsetX + record.get('x') * zoomFactor));
             nodeEl.setTop(Math.round(offsetY + record.get('y') * zoomFactor));
