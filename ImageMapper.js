@@ -116,6 +116,15 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
 
         me.addEvents(
             /**
+             * @event imgload
+             * Fires when source of img is loaded
+             * @param Ext.dom.Element imgEl. img element
+             * @param object size. Natural size of img in format:
+             *      {width: <newWidth>, height: <newHeight>} 
+             */
+            'imgload',
+
+            /**
              * @event imgposchanged
              * Fires when position of img element is changed
              * @param Ext.dom.Element imgEl. img element
@@ -679,6 +688,8 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
 
     onImgLoad: function () {
         this.refreshImg();
+
+        this.fireEvent('imgload', this.imgEl, this.getImgNaturalSize());
     },
 
 
