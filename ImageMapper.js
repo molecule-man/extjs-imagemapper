@@ -160,6 +160,7 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
 
 
     setSrc: function(src) {
+        this.imgSize = null;
         this.imgEl.set({src: src});
     },
 
