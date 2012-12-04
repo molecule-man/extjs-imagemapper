@@ -50,6 +50,8 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
     selectorClass: Ext.baseCSSPrefix+'mapper-selection',
     imgClass: Ext.baseCSSPrefix+'mapper-img',
 
+    selectorStyle: 'background-color: rgba(204, 204, 255, 0.25);',
+
 
     initComponent: function() {
         var me = this,
@@ -58,6 +60,7 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
             selectorStyle = [
                 'position:  absolute;',
                 'border:    1px solid #f00;', 
+                me.selectorStyle,
                 'z-index:   2;'
             ].join(''),
 
@@ -165,6 +168,11 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
     },
 
 
+    getTargetEl: function() {
+        return this.selectionsWrapperEl || this.el;
+    },
+
+
     afterRender: function() {
         var me = this,
             domHelper = Ext.DomHelper || Ext.core.DomHelper;
@@ -172,6 +180,10 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
         var imgDom = domHelper.insertHtml('beforeEnd', Ext.getDom(me.el), me.imgTpl);
         me.imgEl = Ext.get(imgDom);
         me.imgEl.on('load', me.onImgLoad, me);
+
+        var selectionsWrapperDom = domHelper.insertHtml('beforeEnd', Ext.getDom(me.el), '<div></div>');
+        me.selectionsWrapperEl = Ext.get(selectionsWrapperDom);
+
         me.eventGrabber = me.el;
 
         if (me.zoomOnScroll) {
@@ -677,13 +689,14 @@ Ext.define('Ext.ux.extjs-imagemapper.ImageMapper', {
         if (naturalSize.width == 0 || naturalSize.height == 0 ||
             parentSize.width == 0 || parentSize.height == 0 )
         {
-            Ext.Error.raise({
-                msg: 'Either image or image\'s parent has zero size',
-                imgSize: naturalSize,
-                parentSize: parentSize,
-                cmp: 'ImageMapper',
-                method: 'adjustImgSize'
-            });
+            return;
+            //Ext.Error.raise({
+            //    msg: 'Either image or image\'s parent has zero size',
+            //    imgSize: naturalSize,
+            //    parentSize: parentSize,
+            //    cmp: 'ImageMapper',
+            //    method: 'adjustImgSize'
+            //});
         }
 
         var zoomFactor = parentSize.width / naturalSize.width,
