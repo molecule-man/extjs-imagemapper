@@ -6,8 +6,9 @@ ExtJs ImageMapper  widget (ExtJs 4.x)
 ## Features
 ExtJs ImageMapper enables one to:
 
- *  Select rectangular area with mouse
+ *  Select(create) rectangular areas with mouse
  *  Move this areas around with mouse
+ *  Resize areas with mouse
  *  Resize image with mouth wheel scrolling
  *  Move underlying image with mouse (Shift + mouse drag)
 
